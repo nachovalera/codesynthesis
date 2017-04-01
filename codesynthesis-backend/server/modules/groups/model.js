@@ -21,4 +21,17 @@ const GroupSchema = new Schema({
     }],    
 }, { timestamps: true });
 
+GroupSchema.statics.addMeetup = async function(id, args) {
+    const Meetup = mongoose.model('Meetup')
+    //console.log(id, args)
+    const group = await this.findById(id)
+    //console.log(group)
+    const meetup = new Meetup({ ...args, group }) //...args takes all args
+    //console.log('MeetupCS' + meetup);
+    group.meetups.push(meetup)
+    const result = await Promise.all([meetup.save(), group.save()])
+
+    return result
+}
+
 export default mongoose.model('Group', GroupSchema);
