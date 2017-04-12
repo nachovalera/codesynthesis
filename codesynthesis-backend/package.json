@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "NODE_ENV=development nodemon index.js"
   },
-  "repository": "https://github.com/NachoMusic/codesynthesis",
+  "repository": "https://github.com/nachovalera/codesynthesis",
   "author": "Nacho Valera",
   "license": "MIT",
   "dependencies": {

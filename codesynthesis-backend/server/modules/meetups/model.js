@@ -1,4 +1,4 @@
-import mongoose, { Schema } from 'mongoose';
+import mongoose, { Schema } from 'mongoose'
 
 const MeetupSchema = new Schema({
     title: {
@@ -18,6 +18,6 @@ const MeetupSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Group'
     }
-}, { timestamps: true });
+}, { timestamps: true })
 
-export default mongoose.model('Meetup', MeetupSchema);
+export default mongoose.model('Meetup', MeetupSchema)
