@@ -1,51 +1,46 @@
-import Expo from 'expo';
+import Expo, { Components } from 'expo';
 import React from 'react';
-import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
-import { fetchMeetups } from './constants/api';
+import EStyleSheet from 'react-native-extended-stylesheet'
+import Colors from './constants/Colors'
+import { HomeScreen } from './src/screens'
+import { cachedFonts } from './helpers'
+
+EStyleSheet.build(Colors)
 
 class App extends React.Component {
-  static defaultProps = {
-    fetchMeetups
-  }
+	state = {
+		fontLoaded: false
+	}
 
-  state = {
-    loading: false,
-    meetups: []
-  }
+	componentDidMount() {
+		this._loadAssetsAsync()
+	}
 
-  async componentDidMount(){
-    this.setState({ loading: true });
-    const data = await this.props.fetchMeetups();
-    setTimeout(() => this.setState({ loading: false, meetups: data.meetups}), 2000);
-  }
+	async _loadAssetsAsync() {
+		const fontAssets = cachedFonts([
+			{
+				workSans: require('./assets/fonts/WorkSans-Regular.ttf')
+			},
+			{
+				workSansBold: require('./assets/fonts/WorkSans-Bold.ttf')
+			},
+			{
+				workSansLight: require('./assets/fonts/WorkSans-Light.ttf')
+			},
+			{
+				workSansMed: require('./assets/fonts/WorkSans-Medium.ttf')
+			}
+		])
+		await Promise.all(fontAssets)
+		this.setState({ fontLoaded: true })
+	}
 
-  render() {
-    if (this.state.loading) {
-      return (
-        <View style={styles.container}>
-          <ActivityIndicator size="large" />
-        </View>
-      )
-    }
-    return (
-      <View style={styles.container}>
-        <Text>Codesynthesis!</Text>
-
-        {this.state.meetups.map((meetup, i) => (
-          <Text key={i}>{meetup.title}</Text>
-        ))}
-      </View>
-    );
-  }
+	render() {
+		if (!this.state.fontLoaded){
+			return <Components.AppLoading />
+		}
+    	return <HomeScreen />
+	}
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 Expo.registerRootComponent(App);
