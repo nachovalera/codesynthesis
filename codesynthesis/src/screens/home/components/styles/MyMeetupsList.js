@@ -29,14 +29,14 @@ const styles = EstyleSheet.create({
     },
     meetupCardTitle: {
         position: 'absolute',
-        color: '#fff',
+        color: '$white',
         top: '2%',
         left: '2.5%',
         fontFamily: 'workSansBold'
     },
     meetupCardBottomContainer: {
         flex: 0.4,
-        backgroundColor: '#fff',
+        backgroundColor: '$white',
         justifyContent: 'center',
         paddingHorizontal: '2.5%'
     },

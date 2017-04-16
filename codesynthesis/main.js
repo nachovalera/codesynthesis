@@ -2,7 +2,7 @@ import Expo, { Components } from 'expo';
 import React from 'react';
 import EStyleSheet from 'react-native-extended-stylesheet'
 import Colors from './constants/Colors'
-import { HomeScreen } from './src/screens'
+import Root from './src/Root'
 import { cachedFonts } from './helpers'
 
 EStyleSheet.build(Colors)
@@ -39,7 +39,7 @@ class App extends React.Component {
 		if (!this.state.fontLoaded){
 			return <Components.AppLoading />
 		}
-    	return <HomeScreen />
+    	return <Root />
 	}
 }
 
