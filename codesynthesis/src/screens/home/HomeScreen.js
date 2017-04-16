@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text } from 'react-native'
+import { FontAwesome } from '@expo/vector-icons'
 import { MeetupApi } from '../../../constants/api'
 import { LoadingScreen } from '../../commons'
 import { MyMeetupsList } from './components'
@@ -10,6 +11,14 @@ const meetupApi = new MeetupApi()
 class HomeScreen extends Component {
     static defaultProps = {
         meetupApi
+    }
+
+    static navigationOptions = {
+        tabBar: {
+            icon: () => (
+                <FontAwesome name="home" size={25} />
+            )
+        }
     }
 
     state = {

@@ -8,7 +8,7 @@ export default TabNavigator({
     Notifications: {
         screen: NotificationsScreen
     },
-    ProfileScreen: {
+    Profile: {
         screen: ProfileScreen
     }
 })
