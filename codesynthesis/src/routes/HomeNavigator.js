@@ -1,4 +1,5 @@
 import { TabNavigator } from 'react-navigation'
+import Colors from '../../constants/Colors'
 import { HomeScreen, NotificationsScreen, ProfileScreen } from '../screens'
 
 export default TabNavigator({
@@ -10,5 +11,20 @@ export default TabNavigator({
     },
     Profile: {
         screen: ProfileScreen
+    }
+},  {
+    swipeEnabled: true,
+    animationEnabled: true,
+    tabBarPosition: 'bottom',
+    tabBarOptions: {
+        showLabel: false,
+        showIcon: true,
+        inactiveTintColor: Colors.greenDark,
+        indicatorStyle: { backgroundColor: Colors.greenLight },
+        activeTintColor: Colors.greenLight,
+        pressColor: Colors.greenLight,
+        style: {
+            backgroundColor: Colors.white
+        }
     }
 })
