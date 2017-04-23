@@ -3,4 +3,4 @@ import Navigator from './routes/Navigator'
 
 const Root = () => <Navigator />
 
-export default Root;
+export default Root

@@ -50,4 +50,4 @@ const styles = EstyleSheet.create({
     }
 })
 
-export default styles;
+export default styles

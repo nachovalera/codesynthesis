@@ -18,15 +18,15 @@ class MeetupApi {
     }
 
     async fetchGroupMeetups() {
-        const { data } = await axios.get(this.path)
-        return data.meetups
+        try {
+            const { data } = await axios.get(this.path)
+            return data.meetups
+        } catch (e) {
+            console.log(e)
+        }
     }
 }
 
 export {
     MeetupApi
 }
-
-// export const fetchMeetups = () =>
-//     fetch('http://localhost:3000/api/meetups')
-//         .then(res => res.json());

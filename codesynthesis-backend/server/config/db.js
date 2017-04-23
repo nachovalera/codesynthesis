@@ -6,4 +6,4 @@ export default () => {
   mongoose.connection
     .once('open', () => console.log('Mongodb running'))
     .on('error', err => console.log(err))
-};
+}

@@ -8,4 +8,4 @@ const styles = EStyleSheet.create({
     }
 })
 
-export default styles;
+export default styles
