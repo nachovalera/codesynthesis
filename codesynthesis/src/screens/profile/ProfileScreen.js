@@ -8,7 +8,7 @@ class ProfileScreen extends Component {
     static navigationOptions = {
         header: {
             style: {
-                backgroundColor: Colors.white
+                backgroundColor: Colors.greenLight
             }
         },
         tabBar: {

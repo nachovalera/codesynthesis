@@ -7,20 +7,33 @@ import { MyMeetupsList } from './components'
 import styles from './styles/HomeScreen'
 import Colors from '../../../constants/Colors'
 import { fetchMyMeetups } from './actions'
+import { Button, Icon } from 'native-base'
 
 @connect(
     state => ({
         myMeetups: state.home.myMeetups
-    }), 
+    }),  
     { fetchMyMeetups }
 )
 class HomeScreen extends Component {
     
     static navigationOptions = {
-        header: {
-            style: {
-                backgroundColor: Colors.white
-            }
+        header: ({ navigate }) => {
+            const style = { backgroundColor: Colors.greenLight }
+            const right = (
+                <View>
+                    <Button transparent onPress={() => navigate('CreateMeetup')}>
+                        <Icon 
+                            name="md-add-circle"
+                            style={{
+                                fontSize: 30,
+                                color: Colors.white
+                            }}
+                        />
+                    </Button>
+                </View>
+            )
+            return { style, right }
         },
         tabBar: {
             icon: ({ tintColor }) => (
