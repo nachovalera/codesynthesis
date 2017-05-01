@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 import { connect } from 'react-redux'
 import { LoadingScreen } from '../../commons'
@@ -8,6 +8,7 @@ import styles from './styles/HomeScreen'
 import Colors from '../../../constants/Colors'
 import { fetchMyMeetups } from './actions'
 import { Button, Icon } from 'native-base'
+import { MaterialIcons } from '@expo/vector-icons'
 
 @connect(
     state => ({
@@ -21,17 +22,9 @@ class HomeScreen extends Component {
         header: ({ navigate }) => {
             const style = { backgroundColor: Colors.greenLight }
             const right = (
-                <View>
-                    <Button transparent onPress={() => navigate('CreateMeetup')}>
-                        <Icon 
-                            name="md-add-circle"
-                            style={{
-                                fontSize: 30,
-                                color: Colors.white
-                            }}
-                        />
-                    </Button>
-                </View>
+                <TouchableOpacity style={styles.iconAdd} onPress={() => navigate('CreateMeetup')}>
+                    <MaterialIcons name="add-circle" size={30} color={Colors.white}/>
+                </TouchableOpacity>
             )
             return { style, right }
         },
