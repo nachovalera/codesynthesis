@@ -13,7 +13,6 @@
     "axios": "0.15.3",
     "expo": "15.0.0",
     "moment": "^2.18.1",
-    "native-base": "2.0.12",
     "react": "~15.4.0",
     "react-native": "https://github.com/exponent/react-native/archive/sdk-15.0.0.tar.gz",
     "react-native-elements": "^0.11.2",
@@ -22,10 +21,11 @@
     "react-navigation": "1.0.0-beta.7",
     "react-redux": "5.0.3",
     "redux": "^3.6.0",
+    "redux-form": "^6.6.3",
     "redux-promise-middleware": "^4.2.0"
   },
   "devDependencies": {
-    "react-native-debugger-open": "0.3.2",
+    "react-native-debugger-open": "^0.3.8",
     "redux-logger": "2.8.2"
   }
 }

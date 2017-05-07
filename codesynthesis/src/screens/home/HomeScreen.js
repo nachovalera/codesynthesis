@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
-import { FontAwesome } from '@expo/vector-icons'
 import { connect } from 'react-redux'
 import { LoadingScreen } from '../../commons'
 import { MyMeetupsList } from './components'
 import styles from './styles/HomeScreen'
 import Colors from '../../../constants/Colors'
 import { fetchMyMeetups } from './actions'
-import { Button, Icon } from 'native-base'
-import { MaterialIcons } from '@expo/vector-icons'
+import { MaterialIcons, FontAwesome } from '@expo/vector-icons'
 
 @connect(
     state => ({
