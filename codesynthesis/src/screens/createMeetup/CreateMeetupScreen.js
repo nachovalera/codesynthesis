@@ -7,6 +7,7 @@ import { FormLabel, FormInput, Button } from 'react-native-elements'
 import DateTimePicker from 'react-native-modal-datetime-picker'
 import moment from 'moment'
 import { MeetupApi } from '../../../constants/api'
+import { CreateMeetupForm } from './components'
 
 const meetupApi = new MeetupApi()
 
@@ -77,37 +78,11 @@ class CreateMeetupScreen extends Component {
     render() {
         return (
             <View style={styles.root}>
-                <View style={styles.container}>
-                    <View style={styles.item}>
-                        <FormLabel fontFamily="workSans">Title</FormLabel>
-                        <FormInput
-                            onChangeText={this._changeTitle}
-                            value={this.state.title}
-                            selectionColor={Colors.greenBase}
-                        />
-                    </View>
-                    <View style={styles.item}>
-                        <FormLabel fontFamily="workSans">Description</FormLabel>
-                        <FormInput
-                            onChangeText={this._changeDescription}
-                            value={this.state.description}
-                            multiline selectionColor={Colors.greenBase}
-                        />
-                    </View>
-                    <View style={styles.item}>
-                        <Button onPress={ this._showDateTimePicker } title={ this._checkTitle() } raised fontFamily="workSans"/>
-                    </View>
-                    <View style={styles.buttonCreate}>
-                        <Button
-                            title="Create Meetup"
-                            raised
-                            backgroundColor={Colors.greenDark}
-                            fontFamily="workSans"
-                            disabled={this._checkIfButtonSubmitDisabled()}
-                            onPress={this._createMeetup}
-                        />
-                    </View>
-                </View>
+                <CreateMeetupForm 
+                    createMeetup={this._createMeetup}
+                    showDateTimePicker={this._showDateTimePicker}
+                    checkTitle={this._checkTitle()}
+                />
                 <DateTimePicker
                     isVisible={this.state.isDateTimePickerVisible}
                     onConfirm={this._handleDatePicked}
