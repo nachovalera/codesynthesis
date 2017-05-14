@@ -1,3 +1,4 @@
 import CreateMeetupScreen from './CreateMeetupScreen'
+import CreateMeetupReducer from './reducer'
 
-export { CreateMeetupScreen }
+export { CreateMeetupScreen, CreateMeetupReducer }

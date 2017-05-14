@@ -10,7 +10,10 @@ import { createMeetupValidations } from '../validation'
 const CreateMeetupForm = ({
     createMeetup,
     checkTitle,
-    showDateTimePicker
+    showDateTimePicker,
+    handleSubmit,
+    invalid,
+    submitting
 }) => (
     <View style={styles.container}>
         <Field
@@ -42,7 +45,8 @@ const CreateMeetupForm = ({
                 raised
                 backgroundColor={Colors.greenDark}
                 fontFamily="workSans"
-                onSubmit={createMeetup}
+                disabled={invalid || submitting}
+                onPress={handleSubmit(createMeetup)}
             />
         </View>
     </View>

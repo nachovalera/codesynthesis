@@ -3,15 +3,20 @@ import { View, TouchableOpacity } from 'react-native'
 import Colors from '../../../constants/Colors'
 import { MaterialIcons } from '@expo/vector-icons'
 import styles from './styles/CreateMeetupScreen'
-import { FormLabel, FormInput, Button } from 'react-native-elements'
 import DateTimePicker from 'react-native-modal-datetime-picker'
 import moment from 'moment'
-import { MeetupApi } from '../../../constants/api'
 import { CreateMeetupForm } from './components'
+import { connect } from 'react-redux'
+import { createMeetup } from './actions'
+import { LoadingScreen } from '../../commons'
 
-const meetupApi = new MeetupApi()
-
-class CreateMeetupScreen extends Component {
+@connect(
+    state => ({
+        meetup: state.createMeetup,
+    }),
+    { createMeetup }
+)
+export default class CreateMeetupScreen extends Component {
     static navigationOptions = {
         title: 'Create Meetup',
         header: ({ goBack }) => {
@@ -28,9 +33,7 @@ class CreateMeetupScreen extends Component {
 
     state = {
         isDateTimePickerVisible: false,
-        date: moment(),
-        title: '',
-        description: ''
+        date: moment()
     }
 
     _handleDateTimePicker = () => this.setState({ isDateTimePickerVisible: false }) 
@@ -51,31 +54,34 @@ class CreateMeetupScreen extends Component {
     }
 
     _checkIfButtonSubmitDisabled() {
-        const { title, description, date } = this.state
-        if(title.length > 4 && description.length > 4 && date > moment()){
+        const { date } = this.state
+        if(date > moment()){
             return false
         } else {
             return true
         }
-    } 
+    }
 
-    _changeTitle = title => this.setState({ title })
-
-    _changeDescription = description => this.setState({ description  })
-
-    _createMeetup = async () => {
-        const { title, description, date } = this.state
-
-        const res = await meetupApi.createGroupMeetups({
-            title,
-            description,
-            date
-        })
-
-        console.log(res)
+    _createMeetup = async values => {
+        await this.props.createMeetup(values)
+        this.props.navigation.goBack()
     }
 
     render() {
+        const { meetup } = this.props
+        if (meetup.isLoading){
+            return (
+                <View style={styles.root}>
+                    <LoadingScreen />
+                </View>
+            )
+        } else if (meetup.error.on) {
+            return (
+                <View style={styles.root}>
+                    <Text>{meetup.error.message}</Text>
+                </View>
+            )
+        }
         return (
             <View style={styles.root}>
                 <CreateMeetupForm 
@@ -93,5 +99,3 @@ class CreateMeetupScreen extends Component {
         )
     }
 }
-
-export default CreateMeetupScreen

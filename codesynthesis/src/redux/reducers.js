@@ -1,11 +1,10 @@
 import { combineReducers } from 'redux'
 import { reducer as form } from 'redux-form'
 
-import {
-    HomeReducer
-} from '../screens'
+import { HomeReducer, CreateMeetupReducer } from '../screens'
 
 export default combineReducers({
     home: HomeReducer,
-    form
+    form,
+    createMeetup: CreateMeetupReducer
 })
