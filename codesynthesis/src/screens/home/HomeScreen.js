@@ -57,7 +57,7 @@ class HomeScreen extends Component {
         return (
             <View style={styles.root}>
                 <View style={styles.topContainer}>
-                    <Text>HomeScreen</Text>
+                    <Text>Codesynthesis</Text>
                 </View>
                 <View style={styles.bottomContainer}>
                     <MyMeetupsList meetups={data}/>

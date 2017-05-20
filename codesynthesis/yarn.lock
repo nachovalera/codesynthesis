@@ -132,9 +132,9 @@ aws4@^1.2.1:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.6.0.tgz#83ef5ca860b2b32e4a0deedee8c771b9db57471e"
 
-axios@0.15.3:
-  version "0.15.3"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.15.3.tgz#2c9d638b2e191a08ea1d6cc988eadd6ba5bdc053"
+axios@0.16.0:
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.16.0.tgz#6ed9771d815f429e7510f2838262957c4953d3b6"
   dependencies:
     follow-redirects "1.0.0"
 
@@ -300,9 +300,9 @@ babel-plugin-external-helpers@^6.18.0:
   dependencies:
     babel-runtime "^6.22.0"
 
-babel-plugin-module-resolver@^2.3.0:
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-module-resolver/-/babel-plugin-module-resolver-2.7.0.tgz#9c1cb2fcf2a1bdb45e91c6c985b96311123797f9"
+babel-plugin-module-resolver@2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-module-resolver/-/babel-plugin-module-resolver-2.5.0.tgz#a1204b4aeada066e8afb9b9f9c43e238d73d41bb"
   dependencies:
     find-babel-config "^1.0.1"
     glob "^7.1.1"
@@ -379,7 +379,7 @@ babel-plugin-transform-class-properties@^6.5.0, babel-plugin-transform-class-pro
     babel-runtime "^6.22.0"
     babel-template "^6.24.1"
 
-babel-plugin-transform-decorators-legacy@^1.3.4:
+babel-plugin-transform-decorators-legacy@1.3.4, babel-plugin-transform-decorators-legacy@^1.3.4:
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-decorators-legacy/-/babel-plugin-transform-decorators-legacy-1.3.4.tgz#741b58f6c5bce9e6027e0882d9c994f04f366925"
   dependencies:
@@ -755,13 +755,13 @@ babel-preset-es2015@^6.22.0:
     babel-plugin-transform-es2015-unicode-regex "^6.24.1"
     babel-plugin-transform-regenerator "^6.24.1"
 
-babel-preset-expo@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/babel-preset-expo/-/babel-preset-expo-1.0.0.tgz#67771daddcdfcb4b7882a08425f1b9fa6b783056"
+babel-preset-expo@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/babel-preset-expo/-/babel-preset-expo-1.0.1.tgz#94d82bb33abf35bddb1a6878eb901bbf4c54a48c"
   dependencies:
-    babel-plugin-module-resolver "^2.3.0"
-    babel-plugin-transform-decorators-legacy "^1.3.4"
-    babel-preset-react-native-stage-0 "^1.0.1"
+    babel-plugin-module-resolver "2.5.0"
+    babel-plugin-transform-decorators-legacy "1.3.4"
+    babel-preset-react-native-stage-0 "1.0.1"
 
 babel-preset-fbjs@^1.0.0:
   version "1.0.0"
@@ -831,7 +831,7 @@ babel-preset-flow@^6.23.0:
   dependencies:
     babel-plugin-transform-flow-strip-types "^6.22.0"
 
-babel-preset-react-native-stage-0@^1.0.1:
+babel-preset-react-native-stage-0@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/babel-preset-react-native-stage-0/-/babel-preset-react-native-stage-0-1.0.1.tgz#d5f5f685575471ef756a49f191b193269f74306e"
   dependencies:
@@ -1475,13 +1475,13 @@ exit-hook@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/exit-hook/-/exit-hook-1.1.1.tgz#f05ca233b48c05d54fff07765df8507e95c02ff8"
 
-expo@15.0.2:
-  version "15.0.2"
-  resolved "https://registry.yarnpkg.com/expo/-/expo-15.0.2.tgz#618026c51b127670cfde02e5a6b9e138f796ad41"
+expo@15.1.3:
+  version "15.1.3"
+  resolved "https://registry.yarnpkg.com/expo/-/expo-15.1.3.tgz#5c81e4aad0f7fd957e28351387b322e60c982c0e"
   dependencies:
     "@expo/vector-icons" "^4.0.0"
     babel-preset-airbnb "^2.2.3"
-    babel-preset-expo "1.0.0"
+    babel-preset-expo "1.0.1"
     fbemitter "^2.1.1"
     lottie-react-native "1.0.1"
     md5-file "^3.1.1"
@@ -2870,9 +2870,9 @@ redux-form@^6.6.3:
     lodash-es "^4.17.3"
     prop-types "^15.5.6"
 
-redux-logger@2.8.2:
-  version "2.8.2"
-  resolved "https://registry.yarnpkg.com/redux-logger/-/redux-logger-2.8.2.tgz#52140a89afa1c1d25312cc17649c116650bf7fca"
+redux-logger@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/redux-logger/-/redux-logger-3.0.1.tgz#ae8ae4c3c55ed3dd7aa31509f0856c5d3751057a"
   dependencies:
     deep-diff "0.3.4"
 
