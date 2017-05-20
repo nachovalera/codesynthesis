@@ -2,7 +2,7 @@
 
 Setup to develop:
 
-###Backend
+## Backend
 You need mongo running 
 ( Can be run with command *mongod* )
 
@@ -10,7 +10,7 @@ You need mongo running
 	* yarn build
 	* yarn dev
 
-###The app
+## The app
 In codesynthesis/codesynthesis folder
 
 * Run with: [Expo.io](https://expo.io/)
