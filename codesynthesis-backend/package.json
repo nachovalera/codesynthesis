@@ -3,22 +3,23 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=development nodemon index.js"
+    "dev": "NODE_ENV=development nodemon dist/index.js",
+    "build": "babel -w --out-dir=dist ./server",
+    "clean": "rimraf dist"
   },
   "repository": "https://github.com/nachovalera/codesynthesis",
   "author": "Nacho Valera",
   "license": "MIT",
   "dependencies": {
-    "babel-polyfill": "^6.23.0",
-    "babel-preset-es2015": "^6.24.0",
-    "babel-preset-stage-0": "^6.22.0",
-    "babel-register": "^6.24.0",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
-    "mongoose": "4.7.7",
+    "mongoose": "4.9.4",
     "morgan": "^1.8.1"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-env": "^1.4.0",
+    "nodemon": "^1.11.0",
+    "rimraf": "^2.6.1"
   }
 }

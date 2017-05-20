@@ -4,8 +4,7 @@ import { Meetup } from '../meetups'
 export const createGroup = async (req, res) => {
     const {
         name,
-        description,
-        category
+        description
     } = req.body
 
     if(!name) {
