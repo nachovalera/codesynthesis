@@ -4,8 +4,9 @@ import styled from 'styled-components/native'
 import Fonts from '../../../constants/Fonts'
 import Colors from '../../../constants/Colors'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import { Facebook } from 'expo'
+import { Facebook, Google } from 'expo'
 import fbConfig from '../../../constants/fbConfig'
+import googleConfig from '../../../constants/googleConfig'
 
 const FlexContainer = styled.View`
     flex: 1;
@@ -53,6 +54,22 @@ export default class LoginScreen extends Component {
         if (type === 'success') {
             const resp = await fetch(`https://graph.facebook.com/me?access_token=${token}`)
             Alert.alert('Logged In!', `Hi ${(await resp.json()).name}`)
+        }
+    }
+
+    async _logInWithGoogle() {
+        try {
+            const result = await Google.logInAsync({
+                iosClientId: googleConfig.CLIENT_ID_IOS,
+                scopes: ['profile', 'email']
+            })
+            if(result.type === 'success'){
+                Alert.alert(`Logged In! ${result.accessToken}`)
+            } else {
+                return { cancelled: true }
+            }
+        } catch (e) {
+            throw e
         }
     }
 

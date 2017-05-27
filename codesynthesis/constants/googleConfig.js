@@ -1,0 +1,1 @@
+export default { CLIENT_ID_IOS: '230096776277-au77tap4p11vttih8hqla4i4qf4beqf0.apps.googleusercontent.com' }
