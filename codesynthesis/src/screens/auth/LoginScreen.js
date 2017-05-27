@@ -7,6 +7,9 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { Facebook, Google } from 'expo'
 import fbConfig from '../../../constants/fbConfig'
 import googleConfig from '../../../constants/googleConfig'
+import { connect } from 'react-redux'
+import { login } from './actions'
+import { LoadingScreen } from '../../commons'
 
 const FlexContainer = styled.View`
     flex: 1;
@@ -34,7 +37,7 @@ const Button = styled.TouchableOpacity`
     flexDirection: row;
     paddingHorizontal: 10;
 `
-
+@connect(state => ({ isLoading: state.user.isLoading }), { login })
 export default class LoginScreen extends Component {
     state = {}
 
@@ -52,8 +55,11 @@ export default class LoginScreen extends Component {
         })
 
         if (type === 'success') {
-            const resp = await fetch(`https://graph.facebook.com/me?access_token=${token}`)
-            Alert.alert('Logged In!', `Hi ${(await resp.json()).name}`)
+            // const resp = await fetch(`https://graph.facebook.com/me?access_token=${token}`)
+            // Alert.alert('Logged In!', `Hi ${(await resp.json()).name}`)
+            this.props.login(token, 'facebook')
+        } else {
+            throw new Error('Sorry, somwthing went wrong')
         }
     }
 
@@ -64,7 +70,7 @@ export default class LoginScreen extends Component {
                 scopes: ['profile', 'email']
             })
             if(result.type === 'success'){
-                Alert.alert(`Logged In! ${result.accessToken}`)
+                this.props.login(result.accessToken, 'google')
             } else {
                 return { cancelled: true }
             }
@@ -74,6 +80,9 @@ export default class LoginScreen extends Component {
     }
 
     render() {
+        if (this.props.isLoading){
+            return <LoadingScreen color={Colors.greenLight}/>
+        }
         return (
             <FlexContainer>
                 <FlexContainer>
