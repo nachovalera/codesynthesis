@@ -3,11 +3,13 @@ import { Text, View } from 'react-native'
 import styled from 'styled-components/native'
 import Fonts from '../../../constants/Fonts'
 import Colors from '../../../constants/Colors'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 const FlexContainer = styled.View`
     flex: 1;
     justifyContent: center;
     alignItems: center;
+    alignSelf: stretch;
 `
 
 const DeveloperWord = styled.Text`
@@ -26,6 +28,7 @@ const Button = styled.TouchableOpacity`
     alignItems: center;
     flex: 1;
     backgroundColor: ${({ color }) => color};
+    flexDirection: row;
 `
 
 export default class LoginScreen extends Component {
@@ -49,9 +52,11 @@ export default class LoginScreen extends Component {
                     <LoginButtons>
                         <Button color="green">
                             <Text style={Fonts.loginButton}>Sign In!</Text>
+                            <MaterialCommunityIcons name="google" size={30} color={Colors.white} />
                         </Button>
                         <Button color="blue">
                             <Text style={Fonts.loginButton}>Sign Up!</Text>
+                            <MaterialCommunityIcons name="facebook" size={30} color={Colors.white} />
                         </Button>
                     </LoginButtons>
                 </FlexContainer>
