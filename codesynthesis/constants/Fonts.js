@@ -25,7 +25,7 @@ export default {
         textAlign: 'center'
     },
     loginButton: {
-        fontSize: 16,
+        fontSize: 14,
         color: Colors.white,
         fontFamily: 'workSansBold'
     }
