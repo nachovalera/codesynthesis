@@ -6,16 +6,28 @@ import Colors from './constants/Colors'
 import Root from './src/Root'
 import { fontAssets } from './helpers'
 import store from './src/redux/store'
+import { AsyncStorage, UIManager } from 'react-native'
+import { persistStore } from 'redux-persist'
+
+if(UIManager.setLayoutAnimationEnabledExperimental) {
+	UIManager.setLayoutAnimationEnabledExperimental(true)
+}
 
 EStyleSheet.build(Colors)
 
 class App extends React.Component {
 	state = {
-		fontLoaded: false
+		fontLoaded: false,
+		ready: false
 	}
 
 	componentDidMount() {
 		this._loadAssetsAsync()
+		persistStore(
+			store,
+			{ storage: AsyncStorage, whitelist: ['user'] },
+			() => this.setState({ ready: true })
+		)
 	}
 
 	async _loadAssetsAsync() {
@@ -24,7 +36,7 @@ class App extends React.Component {
 	}
 
 	render() {
-		if (!this.state.fontLoaded){
+		if (!this.state.fontLoaded || !this.state.ready){
 			return <AppLoading />
 		}
     	return (

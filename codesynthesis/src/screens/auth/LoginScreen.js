@@ -55,8 +55,8 @@ export default class LoginScreen extends Component {
         })
 
         if (type === 'success') {
-            // const resp = await fetch(`https://graph.facebook.com/me?access_token=${token}`)
-            // Alert.alert('Logged In!', `Hi ${(await resp.json()).name}`)
+            const resp = await fetch(`https://graph.facebook.com/me?access_token=${token}`)
+            Alert.alert('Logged In!', `Hi ${(await resp.json()).name}`)
             this.props.login(token, 'facebook')
         } else {
             throw new Error('Sorry, somwthing went wrong')

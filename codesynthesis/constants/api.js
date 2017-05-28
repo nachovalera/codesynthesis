@@ -49,7 +49,7 @@ class UserApi {
             const { data } = await axios.post(`${this.path}/auth0`, args)
             return data
         } catch (e) {
-            throw e;
+            throw e
         }
     }
 }

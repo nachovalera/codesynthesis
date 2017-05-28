@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import { View, TouchableOpacity } from 'react-native'
-import Colors from '../../../constants/Colors'
-import { MaterialIcons } from '@expo/vector-icons'
+import { View } from 'react-native'
 import styles from './styles/CreateMeetupScreen'
 import DateTimePicker from 'react-native-modal-datetime-picker'
 import moment from 'moment'
@@ -17,19 +15,6 @@ import { LoadingScreen } from '../../commons'
     { createMeetup }
 )
 export default class CreateMeetupScreen extends Component {
-    static navigationOptions = {
-        title: 'Create Meetup',
-        header: ({ goBack }) => {
-            const style = { backgroundColor: Colors.greenBase }
-            const titleStyle = { color: Colors.white }
-            const left = (
-                <TouchableOpacity style={styles.iconClose} onPress={() => goBack()}>
-                    <MaterialIcons name="close" size={30} color={Colors.white}/>
-                </TouchableOpacity>
-            )
-            return { style, titleStyle, left }
-        }
-    }
 
     state = {
         isDateTimePickerVisible: false,

@@ -8,7 +8,7 @@ function loginSuccess(data){
     return { type: LOGIN_SUCCESS, user: data.user, token: data.token }
 }
 
-function loginError(e) {
+function loginError(error) {
     return { type: LOGIN_ERROR, error }
 }
 

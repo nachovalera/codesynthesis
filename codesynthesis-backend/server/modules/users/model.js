@@ -16,7 +16,7 @@ UserSchema.statics.findOrCreate = async function (args) {
 
         return user
     } catch (e) {
-        return e;
+        return e
     }
 }
 

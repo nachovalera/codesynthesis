@@ -3,6 +3,7 @@ import promiseMiddleware from 'redux-promise-middleware'
 import reducers from './reducers'
 import thunk from 'redux-thunk'
 import { createLogger } from 'redux-logger'
+import { autoRehydrate } from 'redux-persist'
 
 const middlewares = [
     promiseMiddleware(),
@@ -13,10 +14,9 @@ if(__DEV__) {
     middlewares.push(createLogger())
 }
 
-const enhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-
 export default createStore(
     reducers,
     undefined,
-    enhancers(applyMiddleware(...middlewares))
+    compose(applyMiddleware(...middlewares)) // para poder iniciar sesión, porque la sesión permanece
+    // compose(applyMiddleware(...middlewares), autoRehydrate())
 )
